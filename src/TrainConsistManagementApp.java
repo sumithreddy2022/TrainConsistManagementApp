@@ -1,24 +1,22 @@
-import java.util.LinkedList;
+import java.util.*;
 
-public class TrainConsistManagementApp {
+class Bogie{
+String name;int cap;
+Bogie(String n,int c){name=n;cap=c;}
+}
 
-    public static void main(String[] args) {
+class TrainApp{
+public static void main(String args[]){
 
-        System.out.println("=== Train Consist Management App ===");
+System.out.println("=== Train Consist Management App ===");
 
-        LinkedList<String> train = new LinkedList<>();
+List<Bogie> l=new ArrayList<>();
 
-        train.add("Engine");
-        train.add("Sleeper");
-        train.add("AC");
-        train.add("Cargo");
-        train.add("Guard");
+l.add(new Bogie("Sleeper",72));l.add(new Bogie("AC Chair",56));l.add(new Bogie("First Class",40));
 
-        train.add(2, "Pantry Car");
+Collections.sort(l,(a,b)->a.cap-b.cap);
 
-        train.removeFirst();
-        train.removeLast();
+for(Bogie x:l)System.out.println(x.name+" "+x.cap);
 
-        System.out.println("Final Train Consist: " + train);
-    }
+}
 }
